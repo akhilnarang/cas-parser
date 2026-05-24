@@ -1,0 +1,399 @@
+{
+  "file": "synthetic_cdsl.pdf",
+  "source": "synthetic",
+  "page_count": 7,
+  "metadata": {
+    "pypdf": {
+      "/Title": "Central Depository Services (India) Ltd",
+      "/CreationDate": "D:20260509045027+05'30'"
+    },
+    "pymupdf": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "width": 595,
+      "height": 842,
+      "text": "Central Depository Services (India) Limited\nCONSOLIDATED ACCOUNT STATEMENT (CAS) FOR SECURITIES HELD IN DEMAT\nFORM AND INVESTMENTS IN MUTUAL FUNDS FOR THE PERIOD FROM 01-04-2026\nTO 30-04-2026\nSummary of Investments\nsingle name of\nJANE Q EXAMPLE ( PAN :ABCDE1234F )\nTotal Portfolio Value 29,000.00\n",
+      "words": [],
+      "tables": [
+        [
+          [
+            "Name/Joint Name (s)",
+            "Portfolio Valuation",
+            null,
+            "View Statement"
+          ],
+          [
+            "JANE Q EXAMPLE",
+            "CDSL Demat Accounts\nMutual Fund Folios",
+            "16,000.00\n13,000.00",
+            "Click Here"
+          ],
+          [
+            null,
+            "Total Portfolio Value",
+            "29,000.00",
+            null
+          ]
+        ]
+      ]
+    },
+    {
+      "page_number": 2,
+      "width": 595,
+      "height": 842,
+      "text": "Consolidated Portfolio\nAsset Class Value Percentage\n",
+      "words": [],
+      "tables": [
+        [
+          [
+            "Asset Class\nप�रसंपि�त का वग�",
+            "Value\nमू�य",
+            "Percentage\n��तशत"
+          ],
+          [
+            "Equity",
+            "12,000.00",
+            "41.38"
+          ],
+          [
+            "Mutual Funds Held in Demat Form",
+            "4,000.00",
+            "13.79"
+          ],
+          [
+            "Mutual Fund Folios",
+            "13,000.00",
+            "44.83"
+          ],
+          [
+            "Total",
+            "29,000.00",
+            "100.00"
+          ]
+        ]
+      ]
+    },
+    {
+      "page_number": 3,
+      "width": 595,
+      "height": 842,
+      "text": "Account Details\nJANE Q EXAMPLE PAN: ABCDE1234F\nCDSL Demat Accounts\nDP Name : EXAMPLE BROKING ALPHA LIMITED DP ID : 12345678 CLIENT ID : 11111111\nDP Name : EXAMPLE BROKING BETA LIMITED DP ID : 12345678 CLIENT ID : 22222222\nMF Folios\nAMC Name : Example One Mutual Fund\nScheme Name : Example One Index Fund - Direct Plan - Growth\nFolio No : 10000001 Mode of Holding : Single\nISIN : INF000A01AB9 RTA : CAMS\nAMC Name : Example Two Mutual Fund\nScheme Name : Example Two Flexi Cap Fund - Direct Plan Growth\nFolio No : 10000002 Mode of Holding : Single\nISIN : INF000B01CD9 RTA : KFINTECH\n",
+      "words": [],
+      "tables": []
+    },
+    {
+      "page_number": 4,
+      "width": 595,
+      "height": 842,
+      "text": "DP Name : EXAMPLE BROKING ALPHA LIMITED BO ID : 11223344556677881111111111111111\nSTATEMENT OF TRANSACTIONS\n",
+      "words": [],
+      "tables": [
+        [
+          [
+            "IIS SSII NNN\nI I",
+            "SS� ee� ccतuu भrr ूi� itत tyy",
+            "TTrraannssaaccttiioonn\nलेनPPदaaेनrrt tiiकccेuu ll�aaवrrवssरण",
+            "DDा aaर� ttख ee\nत",
+            "OशOpु�p.आ. BBतaalी\nशेष",
+            "CCrrC eer dd.iitt",
+            "DDD eebbr.iitt",
+            "C CCl ll. .. BB शaa ेषll",
+            "Stamp\nS�D tटa uाm�typp\nश)"
+          ],
+          [
+            "INE000A01012",
+            "EXAMPLE ALPHA EQUITY SHARES",
+            "PAYOUT-CR CM\nM99001 TM/CP\n90111 SETT",
+            "02-04-2026",
+            "0.000",
+            "10.000",
+            "--",
+            "10.000",
+            "0"
+          ]
+        ]
+      ]
+    },
+    {
+      "page_number": 5,
+      "width": 595,
+      "height": 842,
+      "text": "STATEMENT OF TRANSACTIONS (contd.)\nPortfolio Value ` 3,000.00 as on 30-04-2026\n",
+      "words": [],
+      "tables": [
+        [
+          [
+            "IIS SSII NNN\nI I",
+            "SS� ee� ccतuu भrr ूi� itत tyy",
+            "TTrraannssaaccttiioonn\nलेनPPदaaेनrrt tiiकccेuu ll�aaवrrवssरण",
+            "DDा aaर� ttख ee\nत",
+            "OशOpु�p.आ. BBतaalी\nशेष",
+            "CCrrC eer dd.iitt",
+            "DDD eebbr.iitt",
+            "C CCl ll. .. BB शaa ेषll",
+            "Stamp\nS�D tटa uाm�typp\nश)"
+          ],
+          [
+            "",
+            "",
+            "EP-DR Txn:55501234\nCtBo:1208340000099999",
+            "09-04-2026",
+            "",
+            "--",
+            "2.000",
+            "8.000",
+            "0"
+          ],
+          [
+            "INE000B01028",
+            "EXAMPLE BETA EQUITY SHARES",
+            "INTDEP-CR\n77012345 CTRBO\nIN001002",
+            "07-04-2026",
+            "0.000",
+            "5.000",
+            "--",
+            "5.000",
+            "0"
+          ]
+        ],
+        [
+          [
+            "ISIN\nISIN",
+            "Security\n��तभू�त",
+            "Current\nवत�मBाaनl शेष",
+            "Frozen\n�ोजेन\nBal\nशेष",
+            "Pledge\n�लBेजa lशेष",
+            "Pledge\n�लSेजe tसuेटpअप\nBशaेषl",
+            "Free Bal\nमु�त शेष",
+            "Market\nPrice /\nबाज़ार मू�य/\nFace\nअं�कत मू�य\nValue",
+            "₹V a lu e ( ` )\nम � म ू� य"
+          ],
+          [
+            "INE000A01012",
+            "EXAMPLE ALPHA EQUITY SHARES",
+            "8.000",
+            "--",
+            "--",
+            "--",
+            "8.000",
+            "125.000",
+            "1,000.00"
+          ],
+          [
+            "INE000B01028",
+            "EXAMPLE BETA EQUITY SHARES",
+            "5.000",
+            "--",
+            "--",
+            "--",
+            "5.000",
+            "400.000",
+            "2,000.00"
+          ],
+          [
+            "Portfolio Value ` 3,000.00 as on 30-04-2026",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        ]
+      ]
+    },
+    {
+      "page_number": 6,
+      "width": 595,
+      "height": 842,
+      "text": "DP Name : EXAMPLE BROKING BETA LIMITED BO ID : 11223344556677882222222222222222\nSTATEMENT OF TRANSACTIONS\nPortfolio Value ` 13,000.00 as on 30-04-2026\nNote:\n!! Unlisted security\n## Under Liquidation / Winding Up\n",
+      "words": [],
+      "tables": [
+        [
+          [
+            "IIS SSII NNN\nI I",
+            "SS� ee� ccतuu भrr ूi� itत tyy",
+            "TTrraannssaaccttiioonn\nलेनPPदaaेनrrt tiiकccेuu ll�aaवrrवssरण",
+            "DDा aaर� ttख ee\nत",
+            "OशOpु�p.आ. BBतaalी\nशेष",
+            "CCrrC eer dd.iitt",
+            "DDD eebbr.iitt",
+            "C CCl ll. .. BB शaa ेषll",
+            "Stamp\nS�D tटa uाm�typp\nश)"
+          ],
+          [
+            "INE000C01034",
+            "EXAMPLE GAMMA EQUITY SHARES",
+            "PAYOUT-CR CM\nM99002 TM/CP\n90222 SETT",
+            "03-04-2026",
+            "0.000",
+            "20.000",
+            "--",
+            "20.000",
+            "0"
+          ],
+          [
+            "",
+            "",
+            "BSECH-CR\n88033445 CTRBO\nIN003004",
+            "05-04-2026",
+            "20.000",
+            "3.000",
+            "--",
+            "23.000",
+            "0"
+          ],
+          [
+            "",
+            "",
+            "FOOBAR-CR\n99055667 CTRBO\nIN005006",
+            "06-04-2026",
+            "23.000",
+            "1.000",
+            "--",
+            "24.000",
+            "0"
+          ]
+        ],
+        [
+          [
+            "ISIN\nISIN",
+            "Security\n��तभू�त",
+            "Current\nवत�मBाaनl शेष",
+            "Frozen\n�ोजेन\nBal\nशेष",
+            "Pledge\n�लBेजa lशेष",
+            "Pledge\n�लSेजe tसuेटpअप\nBशaेषl",
+            "Free Bal\nमु�त शेष",
+            "Market\nPrice /\nबाज़ार मू�य/\nFace\nअं�कत मू�य\nValue",
+            "₹V a lu e ( ` )\nम � म ू� य"
+          ],
+          [
+            "INE000C01034",
+            "EXAMPLE GAMMA EQUITY SHARES",
+            "20.000",
+            "5.000",
+            "--",
+            "--",
+            "15.000",
+            "200.000",
+            "4,000.00"
+          ],
+          [
+            "INE000D01040",
+            "EXAMPLE DELTA EQUITY SHARES",
+            "10.000",
+            "--",
+            "--",
+            "--",
+            "10.000",
+            "500.000",
+            "5,000.00"
+          ],
+          [
+            "INF000E01EF4",
+            "EXAMPLE AMC LTD#EXAMPLE MF-EXAMPLE NIFTY 50 ETF",
+            "40.000",
+            "--",
+            "--",
+            "--",
+            "40.000",
+            "100.000",
+            "4,000.00"
+          ],
+          [
+            "INF00ZENITH6!!",
+            "ZENITH ASSET MANAGEMENT CO\nLTD#ZENITH MUTUAL FUND-\nZENITH NIFTY MICROCAP 250\nINDEX FUND-DIRECT-GROWTH",
+            "--",
+            "--",
+            "--",
+            "--",
+            "--",
+            "0.000",
+            "0.00"
+          ],
+          [
+            "Portfolio Value ` 13,000.00 as on 30-04-2026",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        ]
+      ]
+    },
+    {
+      "page_number": 7,
+      "width": 595,
+      "height": 842,
+      "text": "MUTUAL FUND UNITS HELD WITH MF/RTA\n",
+      "words": [],
+      "tables": [
+        [
+          [
+            "3M0U-0T4U-A20L 2F6U NतDक UकNे IअTSन H ुसEारL D�",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "Scheme Name\n�क�म का नाम",
+            "ISIN\nISIN",
+            "Folio No.\nफो�लयो नं",
+            "Closing\nसमाBपaनl शेष\n(य(Uू�नn�it sस))",
+            "N A V ( `₹)\nN A V ( )",
+            "Cumulative\nAmount\n�नवे�शत संचयी\nInvested (in\nरा�श (INR म�)\nINR)",
+            "V a lu a tio n (₹` )\nम ू� य ांक न ( )",
+            "Unrealised\nProfit/Loss",
+            "Unreali­sed\nProfit/\nLoss(%)"
+          ],
+          [
+            "Example One Index Fund - Direct Plan - Growth",
+            "INF000A01AB9",
+            "10000001",
+            "100.000",
+            "60.0000",
+            "5,500.00",
+            "6,000.00",
+            "500.00",
+            "9.09"
+          ],
+          [
+            "Example Two Flexi Cap Fund - Direct Plan Growth",
+            "INF000B01CD9",
+            "10000002",
+            "200.000",
+            "35.0000",
+            "7,500.00",
+            "7,000.00",
+            "-500.00",
+            "-6.67"
+          ],
+          [
+            "Grand Total",
+            "",
+            "",
+            "",
+            "",
+            "13,000.00",
+            "13,000.00",
+            "",
+            ""
+          ]
+        ]
+      ]
+    }
+  ]
+}

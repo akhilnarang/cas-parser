@@ -1,0 +1,27 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.pytest_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv
+
+# CAS statements (never commit real PDFs)
+*.pdf
+
+# Debugging and export results
+*.csv
+*.json
+# Test fixtures (PII-scrubbed JSON extraction payloads) must be committed
+!tests/fixtures/*.json
+
+# Local tool state
+.codex
+.codex/
+.claude/
+.ropeproject/

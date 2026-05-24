@@ -1,0 +1,168 @@
+{
+  "file": "nsdl_sample.pdf",
+  "source": "pdfplumber+pymupdf+pypdf",
+  "metadata": {
+    "pypdf": {
+      "/Keywords": "Metadata, Summary, SOH, SOT, MF, NSDL, CDSL",
+      "/Creator": "NSDL-CAS Team",
+      "/CreationDate": "D:20260417072842+05'30'",
+      "/Subject": "This is Consolidated Account Statement",
+      "/Author": "NSDL",
+      "/Title": "NSDL-Consolidated Account Statement"
+    },
+    "pymupdf": {}
+  },
+  "page_count": 7,
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "National Securities Depository Limited\nConsolidated Account Statement for the month of March 2026\nDear Investor,\nNational Securities Depository Limited 1",
+      "words": [],
+      "tables": [
+        [["Consolidated Account Statement", ""]]
+      ]
+    },
+    {
+      "page_number": 2,
+      "text": "Consolidated Account Statement\nNSDL ID: 100000000\nJANE Q EXAMPLE\nStatement for the period from 01-Mar-2026 to 31-Mar-2026\nYOUR CONSOLIDATED PORTFOLIO VALUE ` 20,000.00 Summary\nYour Demat Account and Mutual Fund Folios\nIn the joint Names of\nJANE Q EXAMPLE (PAN:ABCDE1234F)\nJOHN R EXAMPLE (PAN:ABCDE5678G)\nIn the Single Name of\nJANE Q EXAMPLE (PAN:ABCDE1234F)\nGrand Total 20,000.00\nNational Securities Depository Limited 2",
+      "words": [],
+      "tables": [
+        [["Consolidated Account Statement", ""]],
+        [
+          ["Your Demat Account and Mutual Fund Folios", null, null, null],
+          ["In the joint Names of", null, null, null],
+          ["JANE Q EXAMPLE (PAN:ABCDE1234F)\nJOHN R EXAMPLE (PAN:ABCDE5678G)", null, null, null],
+          ["Account Type", "Account Details", "No. of\nISINs / Schemes", "Value in `"],
+          ["NSDL Demat Account", "EXAMPLE NSDL DEPOSITORY PARTICIPANT\nDP ID:IN300000 Client ID:10000001", "2", "3,000.00"],
+          ["CDSL Demat Account", "EXAMPLE CDSL DEPOSITORY PARTICIPANT\nDP ID:12000000 Client ID:20000001", "1", "2,000.00"],
+          ["Mutual Fund Folios", "1 Folios", "1", "4,000.00"],
+          ["", null, "Total", "9,000.00"],
+          ["In the Single Name of", null, null, null],
+          ["JANE Q EXAMPLE (PAN:ABCDE1234F)", null, null, null],
+          ["Account Type", "Account Details", "No. of\nISINs / Schemes", "Value in `"],
+          ["NSDL Demat Account", "EXAMPLE NSDL DEPOSITORY PARTICIPANT\nDP ID:IN300001 Client ID:10000002", "1", "5,000.00"],
+          ["Mutual Fund Folios", "1 Folios", "1", "6,000.00"],
+          ["", null, "Total", "11,000.00"],
+          ["", null, "Grand Total", "20,000.00"]
+        ]
+      ]
+    },
+    {
+      "page_number": 3,
+      "text": "Consolidated Account Statement\nJANE Q EXAMPLE ` 9,000.00 Holdings\nas on 31-Mar-2026\nPORTFOLIO COMPOSITION\nASSET CLASS Value in ` %\nEquities (E) 5,000.00 55.56%\nMutual Funds (M) 0.00 0.00%\nGovernment Securities (G) 0.00 0.00%\nSovereign Gold Bonds (SGB) 0.00 0.00%\nMutual Fund Folios (F) 4,000.00 44.44%\nNational Pension System (N) 0.00 0.00%\nTOTAL 9,000.00\nNSDL Demat Account\nEXAMPLE NSDL DEPOSITORY PARTICIPANT\nDP ID: IN300000 Client ID: 10000001\nNational Securities Depository Limited 3",
+      "words": [],
+      "tables": [
+        [["Consolidated Account Statement", ""]],
+        [
+          ["NSDL Demat Account\nEXAMPLE NSDL DEPOSITORY PARTICIPANT\nDP ID: IN300000 Client ID: 10000001", "ACCOUNT HOLDERS\nJANE Q EXAMPLE (PAN:ABCDE1234F)\nJOHN R EXAMPLE (PAN:ABCDE5678G)"]
+        ],
+        [
+          ["Equities (E)", null, null, null, null, null],
+          ["Equity Shares", null, null, null, null, null],
+          ["ISIN\nStock Symbol", "Company Name", "Face Value\nin `", "No. of\nShares", "Market\nPrice in `", "Value in `"],
+          ["INE000A01012\nEXAMPLA.NSE", "EXAMPLE ALPHA LIMITED", "1.00", "10", "100.00", "1,000.00"],
+          ["INE000B01010\nNOT LISTED", "EXAMPLE BETA UNLISTED\nLIMITED", "10.00", "200", "10.00", "2,000.00"],
+          ["Sub Total", null, null, null, null, "3,000.00"],
+          ["Total", null, null, null, null, "3,000.00"]
+        ]
+      ]
+    },
+    {
+      "page_number": 4,
+      "text": "Consolidated Account Statement\nCDSL Demat Account\nEXAMPLE CDSL DEPOSITORY PARTICIPANT\nDP ID: 12000000 Client ID: 20000001\nEquities (E)\nMutual Fund Folios (F)\nNational Securities Depository Limited 4",
+      "words": [],
+      "tables": [
+        [["Consolidated Account Statement", ""]],
+        [
+          ["CDSL Demat Account\nEXAMPLE CDSL DEPOSITORY PARTICIPANT\nDP ID: 12000000 Client ID: 20000001", "ACCOUNT HOLDERS\nJANE Q EXAMPLE (PAN:ABCDE1234F)\nJOHN R EXAMPLE (PAN:ABCDE5678G)"]
+        ],
+        [
+          ["Equities (E)", null, null, null, null, null, null],
+          ["ISIN", "SECURITY", "Current Bal.\nFree Bal.\nLent Bal.", "Safekeep Bal.\nLocked In Bal.\nPledge Setup Bal.", "Pledged Bal.\nEarmarked Bal.\nPledgee Bal.", "Market Price\n/ Face Value\nin `", "Value\nin `"],
+          ["INE000C01018", "EXAMPLE GAMMA\nLIMITED#NEW EQUITY\nSHARES WITH FACE VALUE\nRS. 2/- AFTER SUB DIVISION", "20.000\n15.000\n0.000", "0.000\n0.000\n0.000", "5.000\n0.000\n0.000", "100.00", "2,000.00"],
+          ["Sub Total", null, null, null, null, null, "2,000.00"],
+          ["Total", null, null, null, null, null, "2,000.00"]
+        ],
+        [
+          ["Mutual Fund Folios (F)", null, null, null, null, null, null, null, null, null],
+          ["ISIN\nUCC", "ISIN Description", "Folio No.", "No. of\nUnits", "Average\nCost Per Units\n`", "Total Cost\n`", "Current NAV\nper unit\nin `", "Current Value\nin `", "Unrealised\nProfit/(Loss)\n`", "Annualised\nReturn(%)"],
+          ["INF000A01AB9\nUCC0000001", "Example One\nMutual Fund Growth\nDirect Plan", "70000001", "100.000", "35.0000", "3,500.00", "40.0000", "4,000.00", "500.00", "12.50"],
+          ["Sub Total", null, null, null, null, "4,000.00", null, null, null, null],
+          ["Total", null, null, null, null, "4,000.00", null, null, null, null]
+        ]
+      ]
+    },
+    {
+      "page_number": 5,
+      "text": "Consolidated Account Statement\nJANE Q EXAMPLE ` 11,000.00 Holdings\nas on 31-Mar-2026\nPORTFOLIO COMPOSITION\nASSET CLASS Value in ` %\nEquities (E) 5,000.00 45.45%\nMutual Funds (M) 0.00 0.00%\nGovernment Securities (G) 0.00 0.00%\nSovereign Gold Bonds (SGB) 0.00 0.00%\nMutual Fund Folios (F) 6,000.00 54.55%\nNational Pension System (N) 0.00 0.00%\nTOTAL 11,000.00\nNSDL Demat Account\nEXAMPLE NSDL DEPOSITORY PARTICIPANT\nDP ID: IN300001 Client ID: 10000002\nNational Securities Depository Limited 5",
+      "words": [],
+      "tables": [
+        [["Consolidated Account Statement", ""]],
+        [
+          ["NSDL Demat Account\nEXAMPLE NSDL DEPOSITORY PARTICIPANT\nDP ID: IN300001 Client ID: 10000002", "ACCOUNT HOLDER\nJANE Q EXAMPLE (PAN:ABCDE1234F)"]
+        ],
+        [
+          ["Equities (E)", null, null, null, null, null],
+          ["Equity Shares", null, null, null, null, null],
+          ["ISIN\nStock Symbol", "Company Name", "Face Value\nin `", "No. of\nShares", "Market\nPrice in `", "Value in `"],
+          ["INE000D01016\nEXAMPLD.NSE", "EXAMPLE DELTA LIMITED", "5.00", "50", "100.00", "5,000.00"],
+          ["Sub Total", null, null, null, null, "5,000.00"],
+          ["Total", null, null, null, null, "5,000.00"]
+        ],
+        [
+          ["Mutual Fund Folios (F)", null, null, null, null, null, null, null, null, null],
+          ["ISIN\nUCC", "ISIN Description", "Folio No.", "No. of\nUnits", "Average\nCost Per Units\n`", "Total Cost\n`", "Current NAV\nper unit\nin `", "Current Value\nin `", "Unrealised\nProfit/(Loss)\n`", "Annualised\nReturn(%)"],
+          ["INF000B01CD9\nUCC0000002", "Example Two\nMutual Fund Growth\nDirect Plan", "70000002", "120.000", "45.0000", "5,400.00", "50.0000", "6,000.00", "600.00", "10.00"],
+          ["Sub Total", null, null, null, null, "6,000.00", null, null, null, null],
+          ["Total", null, null, null, null, "6,000.00", null, null, null, null]
+        ]
+      ]
+    },
+    {
+      "page_number": 6,
+      "text": "Consolidated Account Statement\nTransactions\nfor the period from 01-Mar-2026 to 31-Mar-2026\nNSDL Demat Account\nSummary of Transactions of\nEXAMPLE NSDL DEPOSITORY PARTICIPANT\nJANE Q EXAMPLE\nDP ID: IN300000 Client ID: 10000001\nTransactions\nfor the period from 01-Mar-2026 to 31-Mar-2026\nCDSL Demat Account\nSummary of Transactions of\nEXAMPLE CDSL DEPOSITORY PARTICIPANT\nJANE Q EXAMPLE\nDP ID: 12000000 Client ID: 20000001\nNational Securities Depository Limited 6",
+      "words": [],
+      "tables": [
+        [["Consolidated Account Statement", ""]],
+        [
+          ["NSDL Demat Account\nEXAMPLE NSDL DEPOSITORY PARTICIPANT\nDP ID: IN300000 Client ID: 10000001", "Summary of Transactions of\nJANE Q EXAMPLE"]
+        ],
+        [
+          ["Date", "Order No", "Description", "Instruction Details", "Opening\nBalance", "Debit", "Credit", "Closing\nBalance"]
+        ],
+        [
+          ["ISIN : INE000A01012 -", null, "EXAMPLE ALPHA LIMITED", null, null, null, null, null, null],
+          ["Beneficiary", null, null, null, null, null, null, null, null],
+          ["05-Mar-2026", "81000000000001", null, "By CM EXAMPLE SECURITIES LIMITED,\nT+1 NORMAL / 2026043", "Standing Instruction\nto receive credit", "5", "0", "5", "10"]
+        ],
+        [
+          ["CDSL Demat Account\nEXAMPLE CDSL DEPOSITORY PARTICIPANT\nDP ID: 12000000 Client ID: 20000001", null, "Summary of Transactions of\nJANE Q EXAMPLE", null, null, null],
+          ["Date", "Transaction Particulars", null, "Credit", "Debit", "Current\nBalance"]
+        ],
+        [
+          ["ISIN : INE000C01018 - EXAMPLE GAMMA LIMITED#NEW EQUITY SHARES WITH FACE VALUE RS. 2/- AFTER SUB DIVISION", null, null, null, null],
+          ["01-Mar-2026", "Opening Balance", null, null, "10.000"],
+          ["04-Mar-2026", "PAYOUT-CR CM M00001 TM/CP 10001 SETT\n1200000000001", "5.000", "", "15.000"]
+        ]
+      ]
+    },
+    {
+      "page_number": 7,
+      "text": "Consolidated Account Statement\nCurrent\nDate Transaction Particulars Credit Debit Balance\n10-Mar-2026 NSEDR SE:1200000000002 CM:M00001 1200000000000061 5.000 20.000\n31-Mar-2026 Closing Balance 20.000\n***End of Statement***\nKnow more about your accounts\nFolio No. AMC NAME HOLDER DETAILS\nNational Securities Depository Limited 7",
+      "words": [],
+      "tables": [
+        [["Consolidated Account Statement", ""]],
+        [
+          ["Date", "Transaction Particulars", null, "Credit", "Debit", "Current\nBalance"],
+          ["10-Mar-2026", "NSEDR SE:1200000000002 CM:M00001 1200000000000061", "", "5.000", "10.000"],
+          ["31-Mar-2026", "Closing Balance", null, null, "10.000"]
+        ],
+        [
+          ["Folio No.\nAMC NAME", "HOLDER DETAILS\nHOLDER(S) NAME(S)\nNOMINEE", "KYC\nStatus", "MOBILE NO", "EMAIL ID", "RTA"],
+          ["70000001\nExample One Mutual Fund", "Sole Holder\nJANE Q EXAMPLE\nNOMINEE – Registered", "OK", "XXXXXX0000", "xXXXXXx", "CAMS"],
+          ["70000002\nExample Two Mutual Fund", "Sole Holder\nJANE Q EXAMPLE\nNOMINEE – Registered", "OK", "XXXXXX0000", "xXXXXXx", "KFINTECH"]
+        ]
+      ]
+    }
+  ]
+}
