@@ -71,7 +71,10 @@ DEMAT_ANCHORS = ("DP Name :",)
 # Page-1 metadata patterns (English layer).
 _PAN_RE = re.compile(r"PAN\s*:\s*([A-Z]{5}\d{4}[A-Z])", re.IGNORECASE)
 _PERIOD_RE = re.compile(
-    r"PERIOD FROM\s*(\d{2}-\d{2}-\d{4}).*?TO\s*(\d{2}-\d{2}-\d{4})",
+    # Older CDSL PDFs render this as "FOR THE PERIOD\nFROM <date> TO <date>"
+    # with a real newline between PERIOD and FROM; newer ones keep it on one
+    # line. Match either with \s+ between PERIOD and FROM.
+    r"PERIOD\s+FROM\s*(\d{2}-\d{2}-\d{4}).*?TO\s*(\d{2}-\d{2}-\d{4})",
     re.IGNORECASE | re.DOTALL,
 )
 _NAME_RE = re.compile(r"single name of\s*\n\s*(.+?)\s*\(\s*PAN", re.IGNORECASE)
@@ -103,9 +106,7 @@ class CdslEcasParser(CasParser):
         meta = self._parse_meta(pages, metadata)
 
         splitter = SectionSplitter(pages)
-        sections = splitter.split(
-            {"summary": SUMMARY_ANCHORS, "demat": DEMAT_ANCHORS}
-        )
+        sections = splitter.split({"summary": SUMMARY_ANCHORS, "demat": DEMAT_ANCHORS})
         section_by_name = {section.name: section for section in sections}
 
         demat_section = section_by_name.get("demat")

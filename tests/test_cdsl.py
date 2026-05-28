@@ -81,6 +81,30 @@ def test_generated_on_from_pdf_creation_date(raw: dict) -> None:
     assert generated.isoformat() == "2026-05-09"
 
 
+def test_period_extraction_with_newline_between_period_and_from(raw: dict) -> None:
+    # Older CDSL CAS PDFs (observed ~2022) render the period clause as
+    #   "...FOR THE PERIOD\nFROM 01-07-2022 TO 31-07-2022\n..."
+    # with a real newline between PERIOD and FROM. The regex must accept
+    # whitespace (incl. newline) between PERIOD and FROM, otherwise the
+    # statement_period_start/end fall through to None and the dashboard's
+    # CAS ingestion refuses to import.
+    raw["pages"][0]["text"] = (
+        "Central Depository Services (India) Limited\n"
+        "CONSOLIDATED ACCOUNT STATEMENT (CAS) FOR SECURITIES HELD IN DEMAT\n"
+        "FORM AND INVESTMENTS IN MUTUAL FUNDS FOR THE PERIOD\n"
+        "FROM 01-07-2022 TO 31-07-2022\n"
+        "Summary of Investments\n"
+        "single name of\n"
+        "JANE Q EXAMPLE ( PAN :ABCDE1234F )\n"
+        "Total Portfolio Value 29,000.00\n"
+    )
+    statement = CdslEcasParser().parse(raw)
+    assert statement.meta.statement_period_start is not None
+    assert statement.meta.statement_period_end is not None
+    assert statement.meta.statement_period_start.isoformat() == "2022-07-01"
+    assert statement.meta.statement_period_end.isoformat() == "2022-07-31"
+
+
 def test_accounts_and_holdings(raw: dict) -> None:
     statement = CdslEcasParser().parse(raw)
     assert len(statement.accounts) == 2
@@ -238,7 +262,9 @@ def test_transactions_collected_and_stamped(raw: dict) -> None:
     assert all(txn.scope == "demat" for txn in statement.transactions)
 
     # Credit is positive, debit negative.
-    signs = {txn.quantity and txn.quantity.is_signed() for txn in statement.transactions}
+    signs = {
+        txn.quantity and txn.quantity.is_signed() for txn in statement.transactions
+    }
     assert True in signs  # at least one debit (negative)
 
 
@@ -403,9 +429,10 @@ def test_summary_and_reconciliation(raw: dict) -> None:
     assert "Equity" in statement.summary.asset_class_totals
     assert "Mutual Funds Held in Demat Form" in statement.summary.asset_class_totals
     # Asset-class rows sum to the grand total.
-    assert sum(
-        statement.summary.asset_class_totals.values(), Decimal("0")
-    ) == statement.summary.grand_total
+    assert (
+        sum(statement.summary.asset_class_totals.values(), Decimal("0"))
+        == statement.summary.grand_total
+    )
 
     recon = statement.reconciliation
     assert recon is not None
@@ -494,7 +521,17 @@ def _holding_columns() -> dict[str, int]:
 def test_cdsl_holding_blank_value_with_nonzero_qty_is_none() -> None:
     # A non-zero Current Balance with a blank Value cell is an extraction
     # failure: value stays None rather than being coerced to 0.00.
-    row = ["INE000A01012", "EXAMPLE ALPHA", "8.000", "--", "--", "--", "8.000", "125.000", ""]
+    row = [
+        "INE000A01012",
+        "EXAMPLE ALPHA",
+        "8.000",
+        "--",
+        "--",
+        "--",
+        "8.000",
+        "125.000",
+        "",
+    ]
     holding = _parse_holding(row, _holding_columns(), {})
     assert holding is not None
     assert holding.quantity == Decimal("8.000")
