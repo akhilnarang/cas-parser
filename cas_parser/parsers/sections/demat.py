@@ -130,7 +130,7 @@ def _resolve_columns(header: list[str]) -> dict[str, int]:
             columns["current"] = index
         elif "MARKET" in cell:
             columns["price"] = index
-        elif despaced.startswith("VALUE") or despaced.startswith("₹VALUE"):
+        elif despaced.startswith(("VALUE", "₹VALUE")):
             columns["value"] = index
     return columns
 
@@ -202,7 +202,7 @@ def _parse_holding(
     # ones so the ``#`` AMC/scheme separator and the rest of the name survive.
     name_flags, name = detect_markers(raw_name, legend)
     name = name.strip()
-    quantity = _cell_decimal(cells, columns["current"]) or Decimal("0")
+    quantity = _cell_decimal(cells, columns["current"]) or Decimal(0)
     price = _cell_decimal(cells, columns["price"])
     value = _cell_decimal(cells, columns["value"])
     if value is None and quantity == 0:
@@ -210,7 +210,7 @@ def _parse_holding(
         # truly zero, so coerce it. A missing value on a non-zero holding,
         # however, is an extraction failure — leave it None so reconciliation
         # marks the scope incomplete rather than fabricating a passing total.
-        value = Decimal("0")
+        value = Decimal(0)
     asset_class = _refine_asset_class(infer_asset_class(isin), name)
     # Merge flags from both cells, preserving legend order without duplicates.
     found = set(isin_flags) | set(name_flags)

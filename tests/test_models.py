@@ -37,7 +37,7 @@ def _sample_statement() -> CasStatement:
                         name="Sample Equity Ltd",
                         isin="INE000000001",
                         asset_class="equity",
-                        quantity=Decimal("10"),
+                        quantity=Decimal(10),
                         price=Decimal("100.50"),
                         value=Decimal("1005.00"),
                     )
@@ -70,7 +70,7 @@ def _sample_statement() -> CasStatement:
 def test_statement_builds_with_decimal_and_date() -> None:
     statement = _sample_statement()
     assert statement.accounts[0].source_ref == "IN300000/12345678"
-    assert statement.accounts[0].holdings[0].quantity == Decimal("10")
+    assert statement.accounts[0].holdings[0].quantity == Decimal(10)
     assert isinstance(statement.meta.statement_period_start, date)
 
 

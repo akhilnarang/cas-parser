@@ -93,7 +93,7 @@ def test_nsdl_holdings_quantity_price_value(raw: dict) -> None:
     by_isin = {holding.isin: holding for holding in nsdl.holdings}
     alpha = by_isin["INE000A01012"]
     assert alpha.name == "EXAMPLE ALPHA LIMITED"
-    assert alpha.quantity == Decimal("10")
+    assert alpha.quantity == Decimal(10)
     assert alpha.price == Decimal("100.00")
     assert alpha.value == Decimal("1,000.00".replace(",", ""))
     assert alpha.quantity * alpha.price == alpha.value
@@ -234,7 +234,7 @@ def test_summary_and_reconciliation(raw: dict) -> None:
         "10000.00"
     )
     assert sum(
-        statement.summary.asset_class_totals.values(), Decimal("0")
+        statement.summary.asset_class_totals.values(), Decimal(0)
     ) == statement.summary.grand_total
 
     recon = statement.reconciliation
@@ -314,7 +314,7 @@ def test_two_schemes_same_folio_group_into_one_folio() -> None:
     # total_value is the SUM of the two scheme values, not a single row's value.
     assert folio.total_value == Decimal("3000.00")
     assert folio.total_value == sum(
-        (s.value for s in folio.schemes), Decimal("0")
+        (s.value for s in folio.schemes), Decimal(0)
     )
 
 
@@ -327,7 +327,7 @@ def test_nsdl_holding_blank_value_with_nonzero_qty_is_none() -> None:
     row = ["INE000A01012\nEXAMPLA.NSE", "EXAMPLE ALPHA LIMITED", "1.00", "10", "100.00", ""]
     holding = _parse_nsdl_holding(row, {})
     assert holding is not None
-    assert holding.quantity == Decimal("10")
+    assert holding.quantity == Decimal(10)
     assert holding.value is None
 
 
@@ -336,8 +336,8 @@ def test_nsdl_holding_blank_value_with_zero_qty_is_zero() -> None:
     row = ["INE000A01012\nEXAMPLA.NSE", "EXAMPLE ALPHA LIMITED", "1.00", "0", "100.00", ""]
     holding = _parse_nsdl_holding(row, {})
     assert holding is not None
-    assert holding.quantity == Decimal("0")
-    assert holding.value == Decimal("0")
+    assert holding.quantity == Decimal(0)
+    assert holding.value == Decimal(0)
 
 
 def test_cdsl_embedded_holding_blank_value_with_nonzero_qty_is_none() -> None:
@@ -400,8 +400,10 @@ def test_spacer_column_cdsl_transaction_keeps_debit_sign() -> None:
             "tables": [
                 [
                     [
-                        "CDSL Demat Account\nEXAMPLE CDSL DP\n"
-                        "DP ID: 12000000 Client ID: 20000001",
+                        (
+                            "CDSL Demat Account\nEXAMPLE CDSL DP\n"
+                            "DP ID: 12000000 Client ID: 20000001"
+                        ),
                         None,
                         "Summary of Transactions",
                         None,

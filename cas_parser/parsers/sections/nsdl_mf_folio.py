@@ -154,7 +154,7 @@ def parse_mf_folios(
                 isin = find_isin(_first_line(row[_COL_ISIN]))
                 if not folio_number or isin is None:
                     continue
-                units = parse_decimal(cells[_COL_UNITS]) or Decimal("0")
+                units = parse_decimal(cells[_COL_UNITS]) or Decimal(0)
                 value = parse_decimal(cells[_COL_VALUE])
                 scheme = MfScheme(
                     scheme_name=cells[_COL_DESC].strip(),
@@ -196,7 +196,7 @@ def _add_scheme(
         folios.append(folio)
     folio.schemes.append(scheme)
     if scheme.value is not None:
-        folio.total_value = (folio.total_value or Decimal("0")) + scheme.value
+        folio.total_value = (folio.total_value or Decimal(0)) + scheme.value
 
 
 __all__ = ["parse_mf_folios"]

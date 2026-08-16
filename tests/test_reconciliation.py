@@ -24,8 +24,8 @@ def _account(total: str) -> DematAccount:
         dp_id="IN300000",
         client_id="12345678",
         holdings=[
-            DematHolding(name="A", quantity=Decimal("1"), value=Decimal("100.00")),
-            DematHolding(name="B", quantity=Decimal("1"), value=Decimal("200.00")),
+            DematHolding(name="A", quantity=Decimal(1), value=Decimal("100.00")),
+            DematHolding(name="B", quantity=Decimal(1), value=Decimal("200.00")),
         ],
         total_value=Decimal(total),
     )
@@ -52,8 +52,8 @@ def test_missing_holding_value_blocks_ok() -> None:
         dp_id="IN300000",
         client_id="12345678",
         holdings=[
-            DematHolding(name="A", quantity=Decimal("1"), value=Decimal("100.00")),
-            DematHolding(name="B", quantity=Decimal("1")),  # no value
+            DematHolding(name="A", quantity=Decimal(1), value=Decimal("100.00")),
+            DematHolding(name="B", quantity=Decimal(1)),  # no value
         ],
         total_value=Decimal("100.00"),
     )
@@ -66,7 +66,7 @@ def test_folio_reconciles_against_reported_total() -> None:
     folio = MfFolio(
         folio_number="9999999999",
         schemes=[
-            MfScheme(scheme_name="S", units=Decimal("10"), value=Decimal("500.00")),
+            MfScheme(scheme_name="S", units=Decimal(10), value=Decimal("500.00")),
         ],
         total_value=Decimal("500.00"),
     )
@@ -93,8 +93,8 @@ def _account_ref(ref_client: str, total: str) -> DematAccount:
         dp_id="IN300000",
         client_id=ref_client,
         holdings=[
-            DematHolding(name="A", quantity=Decimal("1"), value=Decimal("100.00")),
-            DematHolding(name="B", quantity=Decimal("1"), value=Decimal("200.00")),
+            DematHolding(name="A", quantity=Decimal(1), value=Decimal("100.00")),
+            DematHolding(name="B", quantity=Decimal(1), value=Decimal("200.00")),
         ],
         total_value=Decimal(total),
     )

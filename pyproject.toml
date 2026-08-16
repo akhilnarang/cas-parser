@@ -29,6 +29,11 @@ build-backend = "hatchling.build"
 [tool.uv]
 package = true
 
+[tool.ruff.lint.flake8-bugbear]
+# typer.Argument / typer.Option calls in CLI parameter defaults are the
+# documented typer pattern, not a mutable-default bug.
+extend-immutable-calls = ["typer.Argument", "typer.Option"]
+
 [dependency-groups]
 dev = [
     "pytest>=9.0.2",

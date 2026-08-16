@@ -131,7 +131,7 @@ def parse_composition(pages: list[dict[str, Any]]) -> dict[str, Decimal]:
             if value is None or value == 0:
                 continue
             label = match.group("label").strip()
-            totals[label] = totals.get(label, Decimal("0")) + value
+            totals[label] = totals.get(label, Decimal(0)) + value
     return totals
 
 

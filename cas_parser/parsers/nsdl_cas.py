@@ -54,7 +54,10 @@ from cas_parser.parsers.base import CasParser
 from cas_parser.parsers.sections.nsdl_demat import parse_demat_accounts
 from cas_parser.parsers.sections.nsdl_legend import parse_legend
 from cas_parser.parsers.sections.nsdl_mf_folio import parse_mf_folios
-from cas_parser.parsers.sections.nsdl_summary import parse_account_summary, parse_summary
+from cas_parser.parsers.sections.nsdl_summary import (
+    parse_account_summary,
+    parse_summary,
+)
 from cas_parser.parsers.sections.nsdl_transactions import parse_transactions
 from cas_parser.parsers.utils.dates import parse_date
 

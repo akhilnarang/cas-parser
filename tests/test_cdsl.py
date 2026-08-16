@@ -228,7 +228,7 @@ def test_mf_grand_total_valuation_represented(raw: dict) -> None:
     mf_total = statement.summary.asset_class_totals["Mutual Fund Folios"]
     summed_folios = sum(
         (folio.total_value for folio in statement.folios if folio.total_value),
-        Decimal("0"),
+        Decimal(0),
     )
     assert mf_total == summed_folios == Decimal("13000.00")
 
@@ -430,7 +430,7 @@ def test_summary_and_reconciliation(raw: dict) -> None:
     assert "Mutual Funds Held in Demat Form" in statement.summary.asset_class_totals
     # Asset-class rows sum to the grand total.
     assert (
-        sum(statement.summary.asset_class_totals.values(), Decimal("0"))
+        sum(statement.summary.asset_class_totals.values(), Decimal(0))
         == statement.summary.grand_total
     )
 
@@ -543,8 +543,8 @@ def test_cdsl_holding_blank_value_with_zero_qty_is_zero() -> None:
     row = ["INE000A01012", "EXAMPLE ALPHA", "--", "--", "--", "--", "--", "0.000", ""]
     holding = _parse_holding(row, _holding_columns(), {})
     assert holding is not None
-    assert holding.quantity == Decimal("0")
-    assert holding.value == Decimal("0")
+    assert holding.quantity == Decimal(0)
+    assert holding.value == Decimal(0)
 
 
 # --- Fix 5: two BO-ID blocks on one page attribute correctly ----------------

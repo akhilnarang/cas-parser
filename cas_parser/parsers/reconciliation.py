@@ -42,7 +42,7 @@ def _reconcile_values(
     `None` as zero would otherwise fabricate a passing reconciliation.
     """
     incomplete = any(value is None for value in values)
-    computed = sum((value for value in values if value is not None), Decimal("0"))
+    computed = sum((value for value in values if value is not None), Decimal(0))
     delta = None if reported is None else reported - computed
     ok = not incomplete and delta is not None and abs(delta) <= tolerance
     return HoldingReconciliation(
@@ -125,7 +125,7 @@ def build_reconciliation(
 
     any_incomplete = any(result.incomplete for result in holdings)
     computed_portfolio = sum(
-        (result.computed_total for result in holdings), Decimal("0")
+        (result.computed_total for result in holdings), Decimal(0)
     )
     grand_total = summary.grand_total
     portfolio_delta = None if grand_total is None else grand_total - computed_portfolio

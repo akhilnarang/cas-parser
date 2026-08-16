@@ -57,7 +57,7 @@ def parse_date(
 
     for hint in [*(format_hints or []), *_DEFAULT_FORMAT_HINTS]:
         try:
-            return datetime.strptime(normalized, hint).date()
+            return datetime.strptime(normalized, hint).date()  # noqa: DTZ007 — parses a date-only token; time and tz are dropped by .date()
         except ValueError:
             continue
 
@@ -73,11 +73,13 @@ def _parse_with_dateutil(normalized: str, dayfirst: bool) -> date | None:
     rejects any token that did not specify all three components itself.
     """
     try:
+        # The default anchors only exist to detect partial tokens; only .date()
+        # is compared, so a tzinfo would have no effect.
         first = date_parser.parse(
-            normalized, dayfirst=dayfirst, fuzzy=False, default=datetime(2000, 1, 1)
+            normalized, dayfirst=dayfirst, fuzzy=False, default=datetime(2000, 1, 1)  # noqa: DTZ001
         )
         second = date_parser.parse(
-            normalized, dayfirst=dayfirst, fuzzy=False, default=datetime(2001, 6, 15)
+            normalized, dayfirst=dayfirst, fuzzy=False, default=datetime(2001, 6, 15)  # noqa: DTZ001
         )
     except (ValueError, OverflowError, TypeError):
         return None

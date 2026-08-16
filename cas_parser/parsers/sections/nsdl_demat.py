@@ -41,8 +41,8 @@ from typing import Any
 from cas_parser.models import AssetClass, DematAccount, DematHolding
 from cas_parser.parsers.extractors.tables import clean_cell
 from cas_parser.parsers.sections.demat import depository_from_dp_id
-from cas_parser.parsers.sections.nsdl_legend import NOT_LISTED_MARKER
 from cas_parser.parsers.sections.legend import resolve_notes
+from cas_parser.parsers.sections.nsdl_legend import NOT_LISTED_MARKER
 from cas_parser.parsers.utils.amounts import parse_decimal
 from cas_parser.parsers.utils.isin import find_isin, infer_asset_class
 
@@ -94,7 +94,7 @@ def _resolve_value(value: Decimal | None, quantity: Decimal) -> Decimal | None:
     total by treating the unknown value as zero.
     """
     if value is None and quantity == 0:
-        return Decimal("0")
+        return Decimal(0)
     return value
 
 
@@ -177,7 +177,7 @@ def _parse_nsdl_holding(
     price = parse_decimal(clean_cell(row[4])) if len(row) > 4 else None
     value = parse_decimal(clean_cell(row[5])) if len(row) > 5 else None
 
-    quantity = quantity if quantity is not None else Decimal("0")
+    quantity = quantity if quantity is not None else Decimal(0)
     value = _resolve_value(value, quantity)
     flags = _listing_flags(isin_cell, legend)
     asset_class = _refine_asset_class(infer_asset_class(isin), name)
@@ -223,7 +223,7 @@ def _parse_cdsl_holding(
     price = parse_decimal(clean_cell(row[5])) if len(row) > 5 else None
     value = parse_decimal(clean_cell(row[6])) if len(row) > 6 else None
 
-    quantity = quantity if quantity is not None else Decimal("0")
+    quantity = quantity if quantity is not None else Decimal(0)
     value = _resolve_value(value, quantity)
     base = infer_asset_class(isin)
     if base == "other" and section_class is not None:

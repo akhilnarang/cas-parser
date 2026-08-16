@@ -121,7 +121,7 @@ def parse_mf_folios(
                 folio_number = cells[_COL_FOLIO].strip()
                 if not folio_number:
                     continue
-                units = parse_decimal(cells[_COL_UNITS]) or Decimal("0")
+                units = parse_decimal(cells[_COL_UNITS]) or Decimal(0)
                 value = parse_decimal(cells[_COL_VALUE])
                 # Detect any legend-defined footnote markers on the scheme/ISIN
                 # cells (only markers the legend defines are stripped/recorded).
@@ -171,7 +171,7 @@ def _add_scheme(
         folios.append(folio)
     folio.schemes.append(scheme)
     if scheme.value is not None:
-        folio.total_value = (folio.total_value or Decimal("0")) + scheme.value
+        folio.total_value = (folio.total_value or Decimal(0)) + scheme.value
 
 
 __all__ = ["parse_mf_folios"]
