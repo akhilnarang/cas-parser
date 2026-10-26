@@ -78,7 +78,9 @@ class SectionSplitter:
             # the start of both sections — include it in each rather than
             # yielding an empty range for the earlier one.
             end_page = max(next_start, start_page + 1)
-            sections.append(Section(name=name, start_page=start_page, end_page=end_page))
+            sections.append(
+                Section(name=name, start_page=start_page, end_page=end_page)
+            )
         return sections
 
 

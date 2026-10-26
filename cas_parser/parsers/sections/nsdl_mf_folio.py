@@ -164,9 +164,7 @@ def parse_mf_folios(
                     value=value,
                     cost=parse_decimal(cells[_COL_COST]),
                 )
-                _add_scheme(
-                    folios, folio_by_number, folio_number, scheme, amc_by_folio
-                )
+                _add_scheme(folios, folio_by_number, folio_number, scheme, amc_by_folio)
 
     return folios
 

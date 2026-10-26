@@ -130,7 +130,9 @@ class CasTransaction(BaseModel):
     date: date
     description: str
     isin: str | None = None
-    transaction_type: str | None = None  # purchase / redemption / dividend / switch_in / ...
+    transaction_type: str | None = (
+        None  # purchase / redemption / dividend / switch_in / ...
+    )
     quantity: Decimal | None = None  # demat: securities credited (+) / debited (-)
     units: Decimal | None = None  # mf
     nav: Decimal | None = None  # mf

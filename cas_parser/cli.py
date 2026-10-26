@@ -181,7 +181,10 @@ def print_statement(statement: CasStatement) -> None:
         for label, value in summary.asset_class_totals.items():
             table.add_row(label, _money(value))
         if summary.grand_total is not None:
-            table.add_row("[bold]Grand Total[/bold]", f"[bold]{_money(summary.grand_total)}[/bold]")
+            table.add_row(
+                "[bold]Grand Total[/bold]",
+                f"[bold]{_money(summary.grand_total)}[/bold]",
+            )
         console.print(table)
 
     if statement.legend:
@@ -287,10 +290,14 @@ def parse_cas(
 
         if not payload:
             # -v but the parser is a stub, so no parsed output exists.
-            typer.echo("Nothing to write at -v (parser not implemented); use -vvv for raw.")
+            typer.echo(
+                "Nothing to write at -v (parser not implemented); use -vvv for raw."
+            )
         else:
             # Preserve the bare-parsed shape when that's all there is (-v).
-            output_obj: Any = payload["parsed"] if list(payload) == ["parsed"] else payload
+            output_obj: Any = (
+                payload["parsed"] if list(payload) == ["parsed"] else payload
+            )
             output_path.write_text(
                 json.dumps(output_obj, indent=2, ensure_ascii=True, default=str),
                 encoding="utf-8",

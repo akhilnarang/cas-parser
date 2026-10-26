@@ -17,7 +17,9 @@ NUMBER_RE = re.compile(r"[-+]?\d[\d,]*(?:\.\d+)?")
 
 
 def _clean(value: str) -> str:
-    cleaned = value.replace(",", "").replace("`", "").replace("₹", "").replace("Rs.", "")
+    cleaned = (
+        value.replace(",", "").replace("`", "").replace("₹", "").replace("Rs.", "")
+    )
     cleaned = re.sub(r"\s*(Cr|Dr|CR|DR)\.?\s*$", "", cleaned)
     return cleaned.strip()
 
@@ -29,7 +31,7 @@ def parse_decimal(value: str) -> Decimal | None:
         return None
     try:
         return Decimal(cleaned)
-    except (InvalidOperation, ValueError):
+    except InvalidOperation, ValueError:
         return None
 
 

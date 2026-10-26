@@ -139,9 +139,7 @@ def parse_mf_folios(
                     flags=flags,
                     notes=resolve_notes(flags, legend),
                 )
-                _add_scheme(
-                    folios, folio_by_number, folio_number, scheme, amc_by_folio
-                )
+                _add_scheme(folios, folio_by_number, folio_number, scheme, amc_by_folio)
 
     return folios
 
