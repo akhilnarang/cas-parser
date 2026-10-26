@@ -81,7 +81,9 @@ def test_portfolio_reconciliation() -> None:
     assert recon.portfolio_ok is True
     assert recon.portfolio_delta == Decimal("0.00")
 
-    bad = build_reconciliation([_account("300.00")], [], CasSummary(grand_total=Decimal("999.00")))
+    bad = build_reconciliation(
+        [_account("300.00")], [], CasSummary(grand_total=Decimal("999.00"))
+    )
     assert bad.portfolio_ok is False
     assert bad.warnings  # at least the portfolio mismatch is recorded
 

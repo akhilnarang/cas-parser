@@ -272,8 +272,10 @@ def _parse_cdsl_rows(
         # Use the header-resolved columns only when this row matches the header's
         # width; otherwise infer the columns from the row's own width (the spacer
         # presence can differ between the header and its value rows).
-        row_columns = columns if len(cells) == header_width else _cdsl_columns_for_width(
-            len(cells)
+        row_columns = (
+            columns
+            if len(cells) == header_width
+            else _cdsl_columns_for_width(len(cells))
         )
         date_index = row_columns["date"]
         txn_date = parse_date(cells[date_index]) if len(cells) > date_index else None
@@ -291,9 +293,7 @@ def _parse_cdsl_rows(
         credit = (
             cells[row_columns["credit"]] if len(cells) > row_columns["credit"] else ""
         )
-        debit = (
-            cells[row_columns["debit"]] if len(cells) > row_columns["debit"] else ""
-        )
+        debit = cells[row_columns["debit"]] if len(cells) > row_columns["debit"] else ""
         quantity = _signed_quantity(credit, debit)
         transactions.append(
             CasTransaction(
@@ -496,9 +496,7 @@ def _parse_continuation(
             # (not fixed cells[2]/cells[3]) keeps the sign correct.
             columns = _cdsl_columns_for_width(len(cells))
             particulars = cells[columns["particulars"]]
-            credit = (
-                cells[columns["credit"]] if len(cells) > columns["credit"] else ""
-            )
+            credit = cells[columns["credit"]] if len(cells) > columns["credit"] else ""
             debit = cells[columns["debit"]] if len(cells) > columns["debit"] else ""
             transactions.append(
                 CasTransaction(

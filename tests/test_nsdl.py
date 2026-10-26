@@ -210,9 +210,7 @@ def test_transaction_isin_carries_across_page_break(raw: dict) -> None:
     # page break (resetting only at a new account header), so every CDSL movement
     # inherits the GAMMA ISIN.
     statement = NsdlCasParser().parse(raw)
-    gamma_txns = [
-        txn for txn in statement.transactions if txn.isin == "INE000C01018"
-    ]
+    gamma_txns = [txn for txn in statement.transactions if txn.isin == "INE000C01018"]
     assert len(gamma_txns) == 2
     nsedr = next(
         txn for txn in gamma_txns if txn.transaction_type == "NSE Clearing House"
@@ -233,9 +231,10 @@ def test_summary_and_reconciliation(raw: dict) -> None:
     assert statement.summary.asset_class_totals["Mutual Fund Folios"] == Decimal(
         "10000.00"
     )
-    assert sum(
-        statement.summary.asset_class_totals.values(), Decimal(0)
-    ) == statement.summary.grand_total
+    assert (
+        sum(statement.summary.asset_class_totals.values(), Decimal(0))
+        == statement.summary.grand_total
+    )
 
     recon = statement.reconciliation
     assert recon is not None
@@ -313,9 +312,7 @@ def test_two_schemes_same_folio_group_into_one_folio() -> None:
     assert folio.schemes[1].scheme_name == "Scheme Two Growth"
     # total_value is the SUM of the two scheme values, not a single row's value.
     assert folio.total_value == Decimal("3000.00")
-    assert folio.total_value == sum(
-        (s.value for s in folio.schemes), Decimal(0)
-    )
+    assert folio.total_value == sum((s.value for s in folio.schemes), Decimal(0))
 
 
 # --- Fix 3: a qty>0 blank-value holding yields value=None -------------------
@@ -324,7 +321,14 @@ def test_two_schemes_same_folio_group_into_one_folio() -> None:
 def test_nsdl_holding_blank_value_with_nonzero_qty_is_none() -> None:
     # An NSDL six-column row with a non-zero quantity but a blank Value cell is an
     # extraction failure: value must stay None (not coerced to 0.00).
-    row = ["INE000A01012\nEXAMPLA.NSE", "EXAMPLE ALPHA LIMITED", "1.00", "10", "100.00", ""]
+    row = [
+        "INE000A01012\nEXAMPLA.NSE",
+        "EXAMPLE ALPHA LIMITED",
+        "1.00",
+        "10",
+        "100.00",
+        "",
+    ]
     holding = _parse_nsdl_holding(row, {})
     assert holding is not None
     assert holding.quantity == Decimal(10)
@@ -333,7 +337,14 @@ def test_nsdl_holding_blank_value_with_nonzero_qty_is_none() -> None:
 
 def test_nsdl_holding_blank_value_with_zero_qty_is_zero() -> None:
     # A genuine zero-balance line (qty 0) with a blank value resolves to 0.
-    row = ["INE000A01012\nEXAMPLA.NSE", "EXAMPLE ALPHA LIMITED", "1.00", "0", "100.00", ""]
+    row = [
+        "INE000A01012\nEXAMPLA.NSE",
+        "EXAMPLE ALPHA LIMITED",
+        "1.00",
+        "0",
+        "100.00",
+        "",
+    ]
     holding = _parse_nsdl_holding(row, {})
     assert holding is not None
     assert holding.quantity == Decimal(0)
@@ -366,7 +377,14 @@ def test_nsdl_qty_pos_blank_value_makes_scope_incomplete() -> None:
     from cas_parser.models import CasSummary, DematAccount
     from cas_parser.parsers.reconciliation import build_reconciliation
 
-    row = ["INE000A01012\nEXAMPLA.NSE", "EXAMPLE ALPHA LIMITED", "1.00", "10", "100.00", ""]
+    row = [
+        "INE000A01012\nEXAMPLA.NSE",
+        "EXAMPLE ALPHA LIMITED",
+        "1.00",
+        "10",
+        "100.00",
+        "",
+    ]
     holding = _parse_nsdl_holding(row, {})
     assert holding is not None
     account = DematAccount(
@@ -411,7 +429,14 @@ def test_spacer_column_cdsl_transaction_keeps_debit_sign() -> None:
                         None,
                     ],
                     # Header carries a spacer at index 2 (Credit -> 3, Debit -> 4).
-                    ["Date", "Transaction Particulars", "", "Credit", "Debit", "Current\nBalance"],
+                    [
+                        "Date",
+                        "Transaction Particulars",
+                        "",
+                        "Credit",
+                        "Debit",
+                        "Current\nBalance",
+                    ],
                     [
                         "ISIN : INE000C01018 - EXAMPLE GAMMA LIMITED",
                         None,
@@ -421,7 +446,14 @@ def test_spacer_column_cdsl_transaction_keeps_debit_sign() -> None:
                         None,
                     ],
                     # A same-width (6-col) debit row: Debit value sits at index 4.
-                    ["10-Mar-2026", "NSEDR SE:123 CM:M1 456", "", "", "5.000", "10.000"],
+                    [
+                        "10-Mar-2026",
+                        "NSEDR SE:123 CM:M1 456",
+                        "",
+                        "",
+                        "5.000",
+                        "10.000",
+                    ],
                     # A same-width (6-col) credit row: Credit value sits at index 3.
                     ["12-Mar-2026", "PAYOUT-CR CM M1 789", "", "7.000", "", "17.000"],
                 ]

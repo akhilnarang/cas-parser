@@ -50,6 +50,7 @@ Or interactively from the `cas-parser` directory:
 ```python
 from pathlib import Path
 from cas_parser.extractor import extract_raw_pdf
+
 raw = extract_raw_pdf(Path("<pdf>"), passwords=["<PAN>"])
 print(raw["page_count"])
 for page in raw["pages"]:
@@ -82,8 +83,13 @@ Verify the split:
 
 ```python
 from cas_parser.parsers.sections import SectionSplitter
+
 splitter = SectionSplitter(raw["pages"])
-print(splitter.split({"summary": SUMMARY_ANCHORS, "demat": DEMAT_ANCHORS, "mf": MF_ANCHORS}))
+print(
+    splitter.split(
+        {"summary": SUMMARY_ANCHORS, "demat": DEMAT_ANCHORS, "mf": MF_ANCHORS}
+    )
+)
 ```
 
 ## Step 4: Implement the section readers

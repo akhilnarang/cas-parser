@@ -397,7 +397,9 @@ def _account_in_table(rows: list[list[str | None]]) -> str | None:
                 continue
             match = _ACCOUNT_HEADER_RE.search(cell)
             if match:
-                return f"{match.group('dp_id').strip()}/{match.group('client_id').strip()}"
+                return (
+                    f"{match.group('dp_id').strip()}/{match.group('client_id').strip()}"
+                )
     return None
 
 

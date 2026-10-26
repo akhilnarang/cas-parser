@@ -116,7 +116,9 @@ def build_reconciliation(
                 "cannot fully reconcile"
             )
         elif result.reported_total is None:
-            warnings.append(f"no reported total to reconcile for scope {result.scope!r}")
+            warnings.append(
+                f"no reported total to reconcile for scope {result.scope!r}"
+            )
         elif not result.ok:
             warnings.append(
                 f"scope {result.scope!r} off by {result.delta} "
@@ -124,9 +126,7 @@ def build_reconciliation(
             )
 
     any_incomplete = any(result.incomplete for result in holdings)
-    computed_portfolio = sum(
-        (result.computed_total for result in holdings), Decimal(0)
-    )
+    computed_portfolio = sum((result.computed_total for result in holdings), Decimal(0))
     grand_total = summary.grand_total
     portfolio_delta = None if grand_total is None else grand_total - computed_portfolio
     # The portfolio is green only when *every* scope reconciles and the grand

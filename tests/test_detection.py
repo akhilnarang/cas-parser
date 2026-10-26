@@ -89,9 +89,7 @@ def test_detect_cdsl_via_title_fallback() -> None:
 def test_metadata_takes_precedence_over_text() -> None:
     # CDSL metadata + NSDL title text: metadata is the primary signal.
     raw = {
-        "metadata": {
-            "pypdf": {"/Title": "Central Depository Services (India) Ltd"}
-        },
+        "metadata": {"pypdf": {"/Title": "Central Depository Services (India) Ltd"}},
         "pages": [{"text": "National Securities Depository Limited"}],
     }
     assert detect_source(raw) == "cdsl"

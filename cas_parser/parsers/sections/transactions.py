@@ -329,9 +329,7 @@ def _append_table_rows(
         txn_date = parse_date(_cell(cells, _COL_DATE))
         if txn_date is None:
             continue
-        quantity = _signed_quantity(
-            _cell(cells, _COL_CREDIT), _cell(cells, _COL_DEBIT)
-        )
+        quantity = _signed_quantity(_cell(cells, _COL_CREDIT), _cell(cells, _COL_DEBIT))
         # Keep the raw particulars (newlines intact) for code/reference
         # extraction, but flatten newlines for the stored narration.
         raw_particulars = row[_COL_PARTICULARS] or ""

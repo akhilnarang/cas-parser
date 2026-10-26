@@ -259,9 +259,7 @@ def parse_legend(pages: list[dict[str, Any]]) -> dict[str, str]:
     legend: dict[str, str] = {}
     for page in pages:
         words = page.get("words") or []
-        note_word = next(
-            (w for w in words if _NOTE_ANCHOR_RE.match(w["text"])), None
-        )
+        note_word = next((w for w in words if _NOTE_ANCHOR_RE.match(w["text"])), None)
         page_legend: dict[str, str] = {}
         if note_word is not None:
             page_legend = _parse_from_words(words, note_word["top"])

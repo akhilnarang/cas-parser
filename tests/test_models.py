@@ -61,7 +61,10 @@ def _sample_statement() -> CasStatement:
             )
         ],
         summary=CasSummary(
-            asset_class_totals={"Equities": Decimal("1005.00"), "Mutual Funds": Decimal("5638.00")},
+            asset_class_totals={
+                "Equities": Decimal("1005.00"),
+                "Mutual Funds": Decimal("5638.00"),
+            },
             grand_total=Decimal("6643.00"),
         ),
     )
