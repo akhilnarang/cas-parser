@@ -1,7 +1,5 @@
 """Numeric parsing helper tests."""
 
-from __future__ import annotations
-
 from decimal import Decimal
 
 from cas_parser.parsers.utils.amounts import (

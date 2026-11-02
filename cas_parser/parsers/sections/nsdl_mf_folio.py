@@ -19,8 +19,6 @@ sub-section (units of MF schemes held in *demat* form), which is a seven-column
 balance table read by :mod:`cas_parser.parsers.sections.nsdl_demat`.
 """
 
-from __future__ import annotations
-
 import re
 from decimal import Decimal
 from typing import Any

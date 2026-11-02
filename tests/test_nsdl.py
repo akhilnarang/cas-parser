@@ -14,8 +14,6 @@ on an unlisted holding, and a CDSL transaction whose ISIN anchor and continuatio
 movement straddle a page break (cross-page ISIN carry-forward).
 """
 
-from __future__ import annotations
-
 import json
 from decimal import Decimal
 from pathlib import Path
@@ -37,7 +35,7 @@ _FIXTURE = Path(__file__).parent / "fixtures" / "nsdl_sample.json"
 @pytest.fixture
 def raw() -> dict:
     """Load the synthetic NSDL extractor payload."""
-    return json.loads(_FIXTURE.read_text(encoding="utf-8"))
+    return json.loads(_FIXTURE.read_text())
 
 
 def test_detect_source_is_nsdl(raw: dict) -> None:
@@ -122,7 +120,7 @@ def test_cdsl_holding_quantity_is_current_balance(raw: dict) -> None:
 def test_all_holdings_consistent(raw: dict) -> None:
     statement = NsdlCasParser().parse(raw)
     tolerance = Decimal("1.00")
-    holdings = [h for a in statement.accounts for h in a.holdings]
+    holdings = [*a.holdings for a in statement.accounts]
     assert len(holdings) == 4
     for holding in holdings:
         assert holding.isin
@@ -145,7 +143,7 @@ def test_not_listed_legend_marker_and_flag(raw: dict) -> None:
     assert statement.legend["E"].startswith("Asset class")
     assert "SGB" in statement.legend
 
-    holdings = [h for a in statement.accounts for h in a.holdings]
+    holdings = [*a.holdings for a in statement.accounts]
     by_isin = {h.isin: h for h in holdings}
     unlisted = by_isin["INE000B01010"]
     assert unlisted.flags == ["NOT LISTED"]

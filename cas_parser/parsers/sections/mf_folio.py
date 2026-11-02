@@ -19,8 +19,6 @@ names are not in the holdings table — they come from the "Account Details / MF
 Folios" block (``AMC Name : ... Folio No : ...``).
 """
 
-from __future__ import annotations
-
 import re
 from decimal import Decimal
 from typing import Any

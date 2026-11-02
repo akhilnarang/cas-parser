@@ -43,8 +43,6 @@ with a zero value and carries no NPS holdings table, so there is nothing to
 parse; the schema has no NPS container yet (see AGENTS.md "NPS").
 """
 
-from __future__ import annotations
-
 import re
 from datetime import date
 from typing import Any

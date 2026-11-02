@@ -1,7 +1,5 @@
 """Holdings reconciliation tests."""
 
-from __future__ import annotations
-
 from decimal import Decimal
 
 from cas_parser.models import (

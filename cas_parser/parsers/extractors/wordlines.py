@@ -6,8 +6,6 @@ reconstructs visual lines from pdfplumber word boxes so a parser can then map
 tokens to columns by x-position.
 """
 
-from __future__ import annotations
-
 from typing import Any
 
 

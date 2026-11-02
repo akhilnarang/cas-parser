@@ -1,7 +1,5 @@
 """Helpers for working with pdfplumber-extracted tables."""
 
-from __future__ import annotations
-
 
 def clean_cell(cell: str | None) -> str:
     """Normalize a raw table cell: None -> "", collapse newlines, trim."""

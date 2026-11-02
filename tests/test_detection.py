@@ -4,8 +4,6 @@ Detection is metadata-primary with a page-1 title-text fallback. The metadata
 strings below are generic depository boilerplate (no PII).
 """
 
-from __future__ import annotations
-
 import pytest
 
 from cas_parser.parsers.factory import detect_source

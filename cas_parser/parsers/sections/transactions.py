@@ -35,8 +35,6 @@ negative. The parsed transactions are stamped with the owning account's
 ``source_ref`` (``<dp_id>/<client_id>``).
 """
 
-from __future__ import annotations
-
 import re
 from decimal import Decimal
 from typing import Any

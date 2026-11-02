@@ -9,8 +9,6 @@ Parse this first to obtain the reconciliation target (``grand_total``), then
 verify the detail sections against it.
 """
 
-from __future__ import annotations
-
 from decimal import Decimal
 from typing import Any
 

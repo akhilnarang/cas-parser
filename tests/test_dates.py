@@ -1,7 +1,5 @@
 """Date parsing helper tests."""
 
-from __future__ import annotations
-
 from datetime import date
 
 from cas_parser.parsers.utils.dates import format_date, parse_date

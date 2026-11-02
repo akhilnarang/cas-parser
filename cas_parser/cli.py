@@ -16,13 +16,13 @@ from pathlib import Path
 from typing import Any
 
 import typer
-from rich.console import Console
-from rich.table import Table
+lazy from rich.console import Console
+lazy from rich.table import Table
 
-from cas_parser.extractor import extract_raw_pdf, is_pdf_encrypted
 from cas_parser.models import CasStatement
 from cas_parser.parsers.factory import detect_source, get_parser
 from cas_parser.parsers.utils import format_date, format_decimal
+lazy from cas_parser.extractor import extract_raw_pdf, is_pdf_encrypted
 
 
 def password_candidates(password: str) -> list[str]:
@@ -246,7 +246,6 @@ def parse_cas(
         raw_path = output or (Path.cwd() / "cas_raw.json")
         raw_path.write_text(
             json.dumps(raw_data, indent=2, ensure_ascii=True, default=str),
-            encoding="utf-8",
         )
         typer.echo(f"Wrote raw extraction to {raw_path}")
         return
@@ -300,7 +299,6 @@ def parse_cas(
             )
             output_path.write_text(
                 json.dumps(output_obj, indent=2, ensure_ascii=True, default=str),
-                encoding="utf-8",
             )
             typer.echo(f"Wrote extraction to {output_path}")
 
@@ -312,7 +310,6 @@ def parse_cas(
             parsed_dict["source_parser"] = parser_impl.source
             export_json.write_text(
                 json.dumps(parsed_dict, indent=2, ensure_ascii=True, default=str),
-                encoding="utf-8",
             )
             typer.echo(f"Wrote parsed JSON to {export_json}")
 

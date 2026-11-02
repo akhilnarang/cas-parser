@@ -4,6 +4,7 @@ from abc import ABC, abstractmethod
 from typing import Any
 
 from cas_parser.models import (
+    CasMeta,
     CasStatement,
     CasSummary,
     DematAccount,
@@ -55,8 +56,6 @@ class CasParser(ABC):
     @staticmethod
     def _empty_statement(file_name: str, source: str) -> CasStatement:
         """Build a minimal statement shell for a parser to populate."""
-        from cas_parser.models import CasMeta
-
         return CasStatement(
             file=file_name,
             meta=CasMeta(source=source),

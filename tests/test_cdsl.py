@@ -7,8 +7,6 @@ holding values sum to its reported total, each MF folio's scheme value is its
 total, and all scope totals sum to the summary grand total.
 """
 
-from __future__ import annotations
-
 import json
 from decimal import Decimal
 from pathlib import Path
@@ -53,7 +51,7 @@ _TXN_HEADER = [
 @pytest.fixture
 def raw() -> dict:
     """Load the synthetic CDSL extractor payload."""
-    return json.loads(_FIXTURE.read_text(encoding="utf-8"))
+    return json.loads(_FIXTURE.read_text())
 
 
 def test_detect_source_is_cdsl(raw: dict) -> None:

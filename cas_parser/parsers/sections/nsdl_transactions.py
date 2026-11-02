@@ -32,8 +32,6 @@ pages and resets only when a new account block opens — mirroring the CDSL
 transaction reader.
 """
 
-from __future__ import annotations
-
 import re
 from decimal import Decimal
 from typing import Any
@@ -178,15 +176,9 @@ def _signed_quantity(credit: str, debit: str) -> Decimal | None:
 
 def _account_ref_in_table(rows: list[list[str | None]]) -> str | None:
     """Return the ``<dp_id>/<client_id>`` ref if a row opens an account block."""
-    for row in rows:
-        for cell in row:
-            if not cell:
-                continue
-            match = _ACCOUNT_HEADER_RE.search(cell)
-            if match:
-                return (
-                    f"{match.group('dp_id').strip()}/{match.group('client_id').strip()}"
-                )
+    for cell in (*row for row in rows):
+        if cell and (match := _ACCOUNT_HEADER_RE.search(cell)):
+            return f"{match.group('dp_id').strip()}/{match.group('client_id').strip()}"
     return None
 
 

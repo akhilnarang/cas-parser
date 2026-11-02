@@ -29,8 +29,6 @@ holdings table (no PRAN positions). There is therefore nothing to parse, and
 the schema has no NPS container yet. See AGENTS.md "NPS".
 """
 
-from __future__ import annotations
-
 import re
 from datetime import date
 from typing import Any

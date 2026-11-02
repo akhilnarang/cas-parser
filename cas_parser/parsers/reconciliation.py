@@ -12,8 +12,6 @@ done here because depository CAS PDFs do not reliably print opening balances;
 parsers may add it as a soft warning when the data exists.
 """
 
-from __future__ import annotations
-
 from decimal import Decimal
 
 from cas_parser.models import (

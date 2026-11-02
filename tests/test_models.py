@@ -1,7 +1,5 @@
 """Schema construction and JSON serialization tests."""
 
-from __future__ import annotations
-
 import json
 from datetime import date
 from decimal import Decimal

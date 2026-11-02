@@ -1,7 +1,5 @@
 """Registry / factory wiring tests."""
 
-from __future__ import annotations
-
 import pytest
 
 from cas_parser.parsers.cdsl_ecas import CdslEcasParser

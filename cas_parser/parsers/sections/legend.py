@@ -30,8 +30,6 @@ this:
    one-marker-per-line legend and degrades gracefully otherwise.
 """
 
-from __future__ import annotations
-
 import re
 from typing import Any
 

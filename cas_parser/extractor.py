@@ -13,9 +13,9 @@ import io
 from pathlib import Path
 from typing import Any, NamedTuple
 
-import pdfplumber
-import pymupdf
-from pypdf import PdfReader, PdfWriter
+lazy import pdfplumber
+lazy import pymupdf
+lazy from pypdf import PdfReader, PdfWriter
 
 
 def metadata_from_pypdf(reader: PdfReader) -> dict[str, str]:

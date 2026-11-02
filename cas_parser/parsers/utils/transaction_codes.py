@@ -21,27 +21,26 @@ of the raw prefix (with the raw token preserved in the description), so a new
 CDSL code degrades gracefully into a legible label.
 """
 
-from __future__ import annotations
-
 # Category prefix (the part before the "-CR"/"-DR" suffix) -> readable label.
-# Extend this dict to teach the parser a new CDSL transaction category. Every
-# code observed in real CDSL CAS dumps is mapped here; the suffix carries only
-# the credit/debit direction, which is already reflected in the signed quantity.
-CODE_LABELS: dict[str, str] = {
-    "EP": "Early Pay-in",
-    "PAYOUT": "Payout",
-    "INTDEP": "Inter-Depository Transfer",
-    "BSECH": "BSE Clearing House",
-    "NSE": "NSE Clearing House",
-    "BSE": "BSE Clearing House",
-    # Common adjacent codes kept for forward-compatibility; harmless when absent.
-    "NSECH": "NSE Clearing House",
-    "OFFMKT": "Off-Market Transfer",
-    "IPO": "IPO Allotment",
-    "CORPACT": "Corporate Action",
-    "MARGIN": "Margin Pledge",
-    "REL": "Margin Pledge Release",
-}
+# Extend this frozen map to teach the parser a new CDSL transaction category.
+# Every code observed in real CDSL CAS dumps is mapped here. The suffix carries
+# only the credit/debit direction, which the signed quantity already reflects.
+CODE_LABELS: frozendict[str, str] = frozendict(
+    {
+        "EP": "Early Pay-in",
+        "PAYOUT": "Payout",
+        "INTDEP": "Inter-Depository Transfer",
+        "BSECH": "BSE Clearing House",
+        "NSE": "NSE Clearing House",
+        "BSE": "BSE Clearing House",
+        "NSECH": "NSE Clearing House",
+        "OFFMKT": "Off-Market Transfer",
+        "IPO": "IPO Allotment",
+        "CORPACT": "Corporate Action",
+        "MARGIN": "Margin Pledge",
+        "REL": "Margin Pledge Release",
+    }
+)
 
 # Direction suffixes the code appends. The CDSL CAS hyphenates them ("PAYOUT-CR")
 # while the NSDL CAS sometimes fuses them ("NSEDR" -> NSE + DR); both are peeled

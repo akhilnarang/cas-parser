@@ -21,8 +21,6 @@ page *text* with a line regex; the account table extracts cleanly, so it is read
 from the table grid.
 """
 
-from __future__ import annotations
-
 import re
 from decimal import Decimal
 from typing import Any

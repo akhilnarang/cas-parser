@@ -5,8 +5,6 @@ helpers return `datetime.date` objects — the schema stores real dates, not
 strings — and `format_date` renders DD/MM/YYYY for display.
 """
 
-from __future__ import annotations
-
 import re
 from datetime import date, datetime
 

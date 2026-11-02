@@ -35,8 +35,6 @@ legend actually defines are stripped and recorded on ``DematHolding.flags`` /
 a footnote.
 """
 
-from __future__ import annotations
-
 import re
 from decimal import Decimal
 from typing import Any

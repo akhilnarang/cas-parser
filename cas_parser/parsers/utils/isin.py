@@ -15,8 +15,6 @@ prefix with plain G-Secs, so callers should refine SGB/ETF/bond classification
 from the security *name* where it matters.
 """
 
-from __future__ import annotations
-
 import re
 
 from cas_parser.models import AssetClass

@@ -16,8 +16,6 @@ Money / units / NAV are ``Decimal`` and dates are ``datetime.date``; both
 serialize cleanly via ``model_dump(mode="json")`` / ``model_dump_json()``.
 """
 
-from __future__ import annotations
-
 from datetime import date
 from decimal import Decimal
 from typing import Literal

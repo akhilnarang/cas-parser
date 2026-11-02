@@ -18,8 +18,6 @@ The parsed legend then drives which markers are recognised on each holding (see
 ``nsdl_demat.py``); only markers this reader defines are ever recorded.
 """
 
-from __future__ import annotations
-
 import re
 from typing import Any
 

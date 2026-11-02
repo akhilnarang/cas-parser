@@ -6,8 +6,6 @@ places than currency ("123.456"), so these helpers strip grouping and parse to
 `Decimal` without forcing a fixed scale.
 """
 
-from __future__ import annotations
-
 import re
 from decimal import Decimal, InvalidOperation
 

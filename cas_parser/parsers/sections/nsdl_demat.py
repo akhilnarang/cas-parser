@@ -32,8 +32,6 @@ totals come from the front-matter account-summary table, keyed by
 ``<dp_id>/<client_id>``.
 """
 
-from __future__ import annotations
-
 import re
 from decimal import Decimal
 from typing import Any
@@ -64,6 +62,21 @@ _SGB_HINTS = ("SOVEREIGN GOLD BOND", "SGB")
 # Row labels that close an asset-class sub-section or the whole account.
 _SUBTOTAL_LABELS = {"SUB TOTAL", "TOTAL"}
 _NIL_TOKENS = {"", "--", "-"}
+
+# Asset-class section headers (e.g. "Government Securities (G)") that precede a
+# CDSL balance table; used to disambiguate ISIN-ambiguous instruments.
+_SECTION_HEADER_RE = re.compile(r"^(?P<label>.+?)\s*\((?P<code>[A-Z]{1,3})\)\s*$")
+_SECTION_CLASS_BY_CODE: frozendict[str, AssetClass] = frozendict(
+    {
+        "E": "equity",
+        "P": "preference_share",
+        "M": "mutual_fund",
+        "A": "aif",
+        "C": "bond",
+        "G": "government_security",
+        "SGB": "sgb",
+    }
+)
 
 
 def _refine_asset_class(base: AssetClass, name: str) -> AssetClass:
@@ -248,20 +261,6 @@ def _listing_flags(isin_cell: str, legend: dict[str, str]) -> list[str]:
     return []
 
 
-# Asset-class section headers (e.g. "Government Securities (G)") that precede a
-# CDSL balance table; used to disambiguate ISIN-ambiguous instruments.
-_SECTION_CLASS_BY_CODE: dict[str, AssetClass] = {
-    "E": "equity",
-    "P": "preference_share",
-    "M": "mutual_fund",
-    "A": "aif",
-    "C": "bond",
-    "G": "government_security",
-    "SGB": "sgb",
-}
-_SECTION_HEADER_RE = re.compile(r"^(?P<label>.+?)\s*\((?P<code>[A-Z]{1,3})\)\s*$")
-
-
 def _section_class(cell: str) -> AssetClass | None:
     """Map an asset-class section header cell to an asset class, if recognised."""
     match = _SECTION_HEADER_RE.match(cell.strip())
@@ -293,23 +292,18 @@ def _collect_account_headers(
     """
     headers: list[tuple[str, str, str]] = []
     seen: set[tuple[str, str]] = set()
-    for page in pages:
-        for table in page.get("tables", []):
-            for row in table:
-                for cell in row:
-                    if not cell:
-                        continue
-                    match = _ACCOUNT_HEADER_RE.search(cell)
-                    if not match:
-                        continue
-                    dp_id = match.group("dp_id").strip()
-                    client_id = match.group("client_id").strip()
-                    key = (dp_id, client_id)
-                    if key in seen:
-                        continue
-                    seen.add(key)
-                    dp_name = " ".join(match.group("dp_name").split())
-                    headers.append((dp_id, client_id, dp_name))
+    tables = (*page.get("tables", []) for page in pages)
+    cells = (*row for table in tables for row in table)
+    for cell in cells:
+        if not cell or not (match := _ACCOUNT_HEADER_RE.search(cell)):
+            continue
+        dp_id = match.group("dp_id").strip()
+        client_id = match.group("client_id").strip()
+        if (key := (dp_id, client_id)) in seen:
+            continue
+        seen.add(key)
+        dp_name = " ".join(match.group("dp_name").split())
+        headers.append((dp_id, client_id, dp_name))
     return headers
 
 
@@ -391,15 +385,9 @@ def parse_demat_accounts(
 
 def _account_in_table(rows: list[list[str | None]]) -> str | None:
     """Return the ``<dp_id>/<client_id>`` ref if a row opens an account block."""
-    for row in rows:
-        for cell in row:
-            if not cell:
-                continue
-            match = _ACCOUNT_HEADER_RE.search(cell)
-            if match:
-                return (
-                    f"{match.group('dp_id').strip()}/{match.group('client_id').strip()}"
-                )
+    for cell in (*row for row in rows):
+        if cell and (match := _ACCOUNT_HEADER_RE.search(cell)):
+            return f"{match.group('dp_id').strip()}/{match.group('client_id').strip()}"
     return None
 
 

@@ -83,10 +83,11 @@ def _match_by_metadata(raw_data: dict[str, Any]) -> str | None:
     empty but another extractor (e.g. ``pymupdf``) carries the title/creator.
     """
     metadata = raw_data.get("metadata") or {}
-    values: list[str] = []
-    for block in metadata.values():
-        if isinstance(block, dict):
-            values.extend(str(value) for value in block.values())
+    values = [
+        *map(str, block.values())
+        for block in metadata.values()
+        if isinstance(block, dict)
+    ]
     blob = " ".join(values).upper()
     if not blob:
         return None

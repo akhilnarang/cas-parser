@@ -9,8 +9,6 @@ The mechanism is source-agnostic; the actual anchor strings live with each
 source coordinator (`nsdl_cas`, `cdsl_ecas`).
 """
 
-from __future__ import annotations
-
 from dataclasses import dataclass
 from typing import Any
 

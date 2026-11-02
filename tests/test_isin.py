@@ -1,7 +1,5 @@
 """ISIN validation and asset-class inference tests."""
 
-from __future__ import annotations
-
 from cas_parser.parsers.utils.isin import find_isin, infer_asset_class, is_valid_isin
 
 

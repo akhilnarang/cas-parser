@@ -31,6 +31,12 @@ package = true
 # Only use releases that PyPI has served for three days.
 exclude-newer = "3 days"
 
+[tool.ruff.lint]
+extend-select = ["TID251"]
+
+[tool.ruff.lint.flake8-tidy-imports.banned-api]
+"__future__.annotations".msg = "Do not use this import. Python 3.14+ defers annotations by default."
+
 [tool.ruff.lint.flake8-bugbear]
 # typer.Argument / typer.Option calls in CLI parameter defaults are the
 # documented typer pattern, not a mutable-default bug.
